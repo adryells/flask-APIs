@@ -9,10 +9,7 @@ lista = []
 @app.route('/blog/', methods=['GET'])
 @app.route('/blog/<int:postID>/', methods=['GET'])
 def get_posts(postID=None):
-	if postID:
-		return f"blog: {postID}"
-	else:
-		return "Blog"
+	return f"blog: {postID}" if postID else "Blog"
 
 @app.route('/blog/post/', methods=['POST'])
 def post_posts():

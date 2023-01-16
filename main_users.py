@@ -28,12 +28,11 @@ def developer(id=None):
 		elif request.method == 'DELETE':
 			desenvolvedores.pop(id)
 			return jsonify({"status":"excluido com sucesso"})
-	elif id == None:
-		if request.method == 'GET':
-			return jsonify({"devs":desenvolvedores})
-		elif request.method == 'POST':
-			desenvolvedores.append(json.loads(request.data))
-			return jsonify({"status":"dev inserido com sucesso!"})
+	elif request.method == 'GET':
+		return jsonify({"devs":desenvolvedores})
+	elif request.method == 'POST':
+		desenvolvedores.append(json.loads(request.data))
+		return jsonify({"status":"dev inserido com sucesso!"})
 
 
 
